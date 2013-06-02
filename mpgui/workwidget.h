@@ -10,7 +10,7 @@
 #include "setmenu.h"
 #include "mdeditor.h"
 #include "preview.h"
-#include "attributemenu.h"
+#include "attributedialog.h"
 
 namespace Ui {
     class WorkWidget;
@@ -29,7 +29,7 @@ private:
     SetMenu *setMenu;
     MdEditor *mdEditor;
     Preview *preview;
-    AttributeMenu *attributeMenu;
+    AttributeDialog *attributeDialog;
 
 private:
     void initWorkWidget();

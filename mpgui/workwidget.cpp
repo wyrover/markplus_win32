@@ -43,7 +43,6 @@ void WorkWidget::initPreview()
 void WorkWidget::initToolBar()
 {
     setMenu = new SetMenu();
-    attributeMenu = new AttributeMenu();
 }
 
 void WorkWidget::switchViewModel( bool singalFlag, bool previewFlag, bool doubleFlag)
@@ -98,9 +97,6 @@ void WorkWidget::on_setBtn_toggled(bool checked)
 
 void WorkWidget::on_attributeBtn_clicked()
 {
-    QPoint point;
-    point.setX(ui->attributeBtn->x() - 370);
-    point.setY(ui->attributeBtn->y() + 35);
-    point = mapToGlobal(point);
-    attributeMenu->exec(point);
+    attributeDialog = new AttributeDialog();
+    attributeDialog->show();
 }

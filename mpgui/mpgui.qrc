@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/img/IDR_CLOSE_DIALOG.png</file>
+        <file>res/img/IDR_CLOSE_DIALOG_H.png</file>
+        <file>res/img/IDR_CLOSE_DIALOG_P.png</file>
+    </qresource>
+</RCC>

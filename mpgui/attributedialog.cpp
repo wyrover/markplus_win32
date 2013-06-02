@@ -1,4 +1,4 @@
-﻿#include "attributemenu.h"
+﻿#include "attributedialog.h"
 #include "ui_attributebasewidget.h"
 
 AttributeBaseWidget::AttributeBaseWidget(QWidget *parent) :
@@ -13,21 +13,19 @@ AttributeBaseWidget::~AttributeBaseWidget()
     delete ui;
 }
 
-AttributeMenu::AttributeMenu(QWidget *parent) :
-    QMenu(parent)
+AttributeDialog::AttributeDialog(QWidget *parent) :
+    BaseDialog(parent)
 {
-    initAttributeMenu();
+    initAttributeDialog();
 }
 
-AttributeMenu::~AttributeMenu()
+AttributeDialog::~AttributeDialog()
 {
 
 }
 
-void AttributeMenu::initAttributeMenu()
+void AttributeDialog::initAttributeDialog()
 {
-    attAction = new QWidgetAction(this);
     attBaseWidget = new AttributeBaseWidget();
-    attAction->setDefaultWidget(attBaseWidget);
-    addAction(attAction);
+    setSubWidget(attBaseWidget);
 }

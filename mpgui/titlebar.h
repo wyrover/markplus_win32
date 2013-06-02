@@ -28,7 +28,7 @@ public:
 
 private:
     Ui::TitleBar *ui;
-	QSettings *iniSet;
+    QSettings *iniSet;
     QPoint m_ptPressGlobal;
     QPoint m_ptMove;
     QRect m_rectRestoreWindow;
@@ -38,11 +38,14 @@ private:
 private:
     void initTitleBar(bool b_minBtn, bool b_maxBtn, bool b_closeBtn);
     void initParams();
-protected:
     void mouseDoubleClickEvent(QMouseEvent *);
     void mouseMoveEvent(QMouseEvent *);
     void mousePressEvent(QMouseEvent *);
     void mouseReleaseEvent(QMouseEvent *);
+
+private slots:
+    void showMaxRestore();
+
 };
 
 #endif // TITLEBAR_H

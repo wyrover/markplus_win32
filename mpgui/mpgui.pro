@@ -21,7 +21,8 @@ SOURCES += \
     mpgui.cpp \
     mdeditor.cpp \
     flowlayout.cpp \
-    attributemenu.cpp
+    basedialog.cpp \
+    attributedialog.cpp
 
 HEADERS +=\
         mpgui_global.h \
@@ -36,7 +37,8 @@ HEADERS +=\
     mdeditor.h \
     flowlayout.h \
     config.h \
-    attributemenu.h
+    basedialog.h \
+    attributedialog.h
 
 unix:!symbian {
     maemo5 {
@@ -51,7 +53,8 @@ FORMS += \
     workwidget.ui \
     titlebar.ui \
     mpgui.ui \
-    attributebasewidget.ui
+    attributebasewidget.ui \
+    basedialog.ui
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../logger/release/ -llogger
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../logger/debug/ -llogger
@@ -73,3 +76,6 @@ else:unix: LIBS += -L$$OUT_PWD/../syntaxparse/ -lsyntaxparse
 
 INCLUDEPATH += $$PWD/../syntaxparse
 DEPENDPATH += $$PWD/../syntaxparse
+
+RESOURCES += \
+    mpgui.qrc

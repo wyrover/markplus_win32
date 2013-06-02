@@ -1,9 +1,8 @@
-﻿#ifndef ATTRIBUTEMENU_H
-#define ATTRIBUTEMENU_H
+﻿#ifndef ATTRIBUTEDIALOG_H
+#define ATTRIBUTEDIALOG_H
 
 #include <QWidget>
-#include <QMenu>
-#include <QWidgetAction>
+#include "basedialog.h"
 
 namespace Ui {
 class AttributeBaseWidget;
@@ -21,19 +20,17 @@ private:
     Ui::AttributeBaseWidget *ui;
 };
 
-class AttributeMenu : public QMenu
+class AttributeDialog : public BaseDialog
 {
     Q_OBJECT
 
 public:
-    explicit AttributeMenu(QWidget *parent = 0);
-    ~AttributeMenu();
+    explicit AttributeDialog(QWidget *parent = 0);
+    ~AttributeDialog();
 
 private:
     AttributeBaseWidget* attBaseWidget;
-    QWidgetAction* attAction;
-
-    void initAttributeMenu();
+    void initAttributeDialog();
 };
 
-#endif // ATTRIBUTEMENU_H
+#endif // ATTRIBUTEDIALOG_H
