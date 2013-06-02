@@ -22,8 +22,10 @@ void WorkWidget::initWorkWidget()
 {
     ui->stackedWidget->setCurrentIndex(0);
     ui->doubleBtn->setChecked(true);
-    mdEditor->show();
-    preview->show();
+    QList<int> splitterSizes;
+    splitterSizes.append(ui->editorPage->width()/2);
+    splitterSizes.append(ui->editorPage->width()/2);
+    ui->splitter->setSizes(splitterSizes);
 }
 
 void WorkWidget::initEditor()
@@ -37,6 +39,7 @@ void WorkWidget::initPreview()
 {
     preview = new Preview();
     preview->setHtml("<h1>Welcome to the world of Markdown</h1><hr/><ul><li>aaa</li><li>bbb</li><li>ccc</li></ul>");
+    qDebug() << ui->editorPage->width();
     ui->splitter->addWidget(preview);
 }
 

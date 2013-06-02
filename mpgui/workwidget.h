@@ -4,6 +4,7 @@
 #include <QPoint>
 #include <QWidget>
 #include <QAction>
+#include <QList>
 #include <QSplitter>
 #include <QToolButton>
 #include <QtWebKit/QWebView>
