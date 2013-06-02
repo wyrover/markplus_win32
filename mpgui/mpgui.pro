@@ -20,7 +20,8 @@ SOURCES += \
     preview.cpp \
     mpgui.cpp \
     mdeditor.cpp \
-    flowlayout.cpp
+    flowlayout.cpp \
+    attributemenu.cpp
 
 HEADERS +=\
         mpgui_global.h \
@@ -34,7 +35,8 @@ HEADERS +=\
     mpgui.h \
     mdeditor.h \
     flowlayout.h \
-    config.h
+    config.h \
+    attributemenu.h
 
 unix:!symbian {
     maemo5 {
@@ -48,7 +50,8 @@ unix:!symbian {
 FORMS += \
     workwidget.ui \
     titlebar.ui \
-    mpgui.ui
+    mpgui.ui \
+    attributebasewidget.ui
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../logger/release/ -llogger
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../logger/debug/ -llogger

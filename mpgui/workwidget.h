@@ -1,4 +1,4 @@
-#ifndef WORKWIDGET_H
+﻿#ifndef WORKWIDGET_H
 #define WORKWIDGET_H
 
 #include <QPoint>
@@ -10,15 +10,16 @@
 #include "setmenu.h"
 #include "mdeditor.h"
 #include "preview.h"
+#include "attributemenu.h"
 
 namespace Ui {
-	class WorkWidget;
+    class WorkWidget;
 }
 
 class WorkWidget : public QWidget
 {
     Q_OBJECT
-    
+
 public:
     explicit WorkWidget(QWidget *parent = 0);
     ~WorkWidget();
@@ -28,19 +29,21 @@ private:
     SetMenu *setMenu;
     MdEditor *mdEditor;
     Preview *preview;
+    AttributeMenu *attributeMenu;
 
 private:
     void initWorkWidget();
     void initToolBar();
     void initEditor();
     void initPreview();
-	void switchViewModel(bool, bool, bool);
+    void switchViewModel(bool, bool, bool);
 
-public slots:
-	void on_setBtn_toggle();
-	void on_signalBtn_clicked();
-	void on_previewBtn_clicked();
-	void on_doubleBtn_clicked();
+private slots:
+    void on_signalBtn_clicked();
+    void on_previewBtn_clicked();
+    void on_doubleBtn_clicked();
+    void on_setBtn_toggled(bool checked);
+    void on_attributeBtn_clicked();
 };
 
 #endif // WORKWIDGET_H
