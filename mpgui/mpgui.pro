@@ -79,3 +79,6 @@ DEPENDPATH += $$PWD/../syntaxparse
 
 RESOURCES += \
     mpgui.qrc
+
+OTHER_FILES += \
+    res/skin/default.qss

@@ -31,6 +31,7 @@ public:
 private:
     AttributeBaseWidget* attBaseWidget;
     void initAttributeDialog();
+    void initDefaultSkin();
 };
 
 #endif // ATTRIBUTEDIALOG_H

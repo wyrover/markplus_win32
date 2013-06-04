@@ -1,0 +1,11 @@
+/* Attribute Dialog stylesheet */
+QDialog {
+    background-color: #ffffff;
+    border: 1px solid #cecece;
+}
+QLineEdit{
+    border: 1px solid #cecece;
+}
+QLineEdit:focus {
+    border: 1px solid #006aa2;
+}
