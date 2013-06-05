@@ -29,19 +29,4 @@ void AttributeDialog::initAttributeDialog()
 {
     attBaseWidget = new AttributeBaseWidget();
     setSubWidget(attBaseWidget);
-    initDefaultSkin();
-}
-
-void AttributeDialog::initDefaultSkin()
-{
-    QString qss;
-    QFile qssFile("://res/skin/default.qss");
-    qssFile.open(QFile::ReadOnly);
-    if(qssFile.isOpen())
-    {
-        qss = QLatin1String(qssFile.readAll());
-        qDebug() << qss;
-        setStyleSheet(qss);
-        qssFile.close();
-    }
 }

@@ -1,4 +1,4 @@
-﻿#include "workwidget.h"
+#include "workwidget.h"
 #include "ui_workwidget.h"
 #include <QDebug>
 
@@ -46,6 +46,7 @@ void WorkWidget::initPreview()
 void WorkWidget::initToolBar()
 {
     setMenu = new SetMenu();
+    setMenu->setObjectName("setMenu");
 }
 
 void WorkWidget::switchViewModel( bool singalFlag, bool previewFlag, bool doubleFlag)

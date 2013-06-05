@@ -10,6 +10,7 @@ MpGui::MpGui(QWidget *parent) :
     initTitleBar();
     initWorkWidget();
     initStatusBar();
+    initStyleSheet();
 }
 
 MpGui::~MpGui()
@@ -41,4 +42,17 @@ void MpGui::initWorkWidget()
     //初始化workwidget
     workWidget = new WorkWidget();
     ui->mainLayout->addWidget(workWidget);
+}
+
+void MpGui::initStyleSheet()
+{
+    QString qss;
+    QFile qssFile("://res/skin/default.qss");
+    qssFile.open(QFile::ReadOnly);
+    if(qssFile.isOpen())
+    {
+        qss = QLatin1String(qssFile.readAll());
+        qApp->setStyleSheet(qss);
+        qssFile.close();
+    }
 }

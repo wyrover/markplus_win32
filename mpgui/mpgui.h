@@ -32,6 +32,7 @@ private:
     void initTitleBar();
     void initStatusBar();
     void initWorkWidget();
+    void initStyleSheet();
 
 };
 

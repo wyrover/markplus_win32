@@ -9,3 +9,21 @@ QLineEdit{
 QLineEdit:focus {
     border: 1px solid #006aa2;
 }
+#baseDialogTitle {
+    border: 3px solid #17A4EC;
+    background-color: #17A4EC;
+}
+
+/* Setting Menu Stylesheet */
+QMenu {
+    background-color: #ffffff;
+    border: 1px solid #cecece;
+}
+QMenu::item {
+    margin: 0px, 0px, 0px, 0px;
+    padding: 10px;
+}
+
+QMenu::item:selected {
+    background-color: #eeeeee;
+}

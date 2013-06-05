@@ -1,4 +1,4 @@
-﻿#include "basedialog.h"
+#include "basedialog.h"
 #include "ui_basedialog.h"
 #include "QDebug"
 
@@ -19,8 +19,6 @@ void BaseDialog::initBaseDialog()
 {
     setWindowFlags( Qt::FramelessWindowHint | Qt::WindowSystemMenuHint | Qt::WindowMinimizeButtonHint);
     leftBtnDown = false;
-
-    connect(ui->closeBtn, SIGNAL(clicked()), this, SLOT(close()));
 }
 
 void BaseDialog::mouseMoveEvent(QMouseEvent *event)
