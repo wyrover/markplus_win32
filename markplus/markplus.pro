@@ -6,7 +6,7 @@ TEMPLATE = app
 
 TARGET = markplus
 
-QT += core gui webkit
+QT += core gui webkit sql
 
 INCLUDEPATH += ../include
 INCLUDEPATH += ../include/log4cpp

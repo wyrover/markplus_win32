@@ -4,12 +4,15 @@
 #
 #-------------------------------------------------
 
-QT       += webkit
+QT       += webkit sql
 
 TARGET = mpgui
 TEMPLATE = lib
 
 DEFINES += MPGUI_LIBRARY
+
+INCLUDEPATH += ../include \
+                ../include/log4cpp
 
 SOURCES += \
     workwidget.cpp \
@@ -56,6 +59,14 @@ FORMS += \
     attributebasewidget.ui \
     basedialog.ui
 
+
+
+RESOURCES += \
+    mpgui.qrc
+
+OTHER_FILES += \
+    res/skin/default.qss
+
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../logger/release/ -llogger
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../logger/debug/ -llogger
 else:unix: LIBS += -L$$OUT_PWD/../logger/ -llogger
@@ -76,9 +87,3 @@ else:unix: LIBS += -L$$OUT_PWD/../syntaxparse/ -lsyntaxparse
 
 INCLUDEPATH += $$PWD/../syntaxparse
 DEPENDPATH += $$PWD/../syntaxparse
-
-RESOURCES += \
-    mpgui.qrc
-
-OTHER_FILES += \
-    res/skin/default.qss

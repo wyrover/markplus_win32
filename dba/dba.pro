@@ -14,10 +14,32 @@ TEMPLATE = lib
 
 DEFINES += DBA_LIBRARY
 
-SOURCES += databaseaccess.cpp
+SOURCES += databaseaccess.cpp \
+    clouduserdao.cpp \
+    mpoptionsdao.cpp \
+    mpuserdao.cpp \
+    mppostsdao.cpp \
+    wptermsdao.cpp \
+    wpuserdao.cpp \
+    wordpresspost.cpp \
+    wordpressuser.cpp \
+    clouduser.cpp \
+    markplususer.cpp \
+    wordpressterm.cpp
 
 HEADERS += databaseaccess.h\
-        dba_global.h
+        dba_global.h \
+    clouduserdao.h \
+    mpoptionsdao.h \
+    mpuserdao.h \
+    mppostsdao.h \
+    wptermsdao.h \
+    wpuserdao.h \
+    wordpresspost.h \
+    wordpressuser.h \
+    clouduser.h \
+    markplususer.h \
+    wordpressterm.h
 
 unix:!symbian {
     maemo5 {

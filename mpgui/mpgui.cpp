@@ -1,5 +1,6 @@
 ﻿#include "ui_mpgui.h"
 #include "mpgui.h"
+#include "QDebug"
 
 MpGui::MpGui(QWidget *parent) :
     QWidget(parent),

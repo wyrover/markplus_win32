@@ -28,7 +28,7 @@ void Logger::wran(QString log)
 
 void Logger::error(QString log)
 {
-    logfile->warn(log.toLatin1().data());
+    logfile->error(log.toLatin1().data());
 }
 
 void Logger::crit(QString log)

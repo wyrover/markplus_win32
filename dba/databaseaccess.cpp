@@ -1,4 +1,5 @@
 ﻿#include "databaseaccess.h"
+#include "QDebug"
 
 
 DataBaseAccess::DataBaseAccess()
@@ -14,8 +15,8 @@ QSqlDatabase DataBaseAccess::getDataBase(QString dbname)
 
 QString DataBaseAccess::getSyntaxParse(QString js)
 {
-    //获取语法解析相关内容
-    QSqlDatabase db = getDataBase("sys");
+   //获取语法解析相关内容
+    QSqlDatabase db = getDataBase("system");
     if(!db.open())
     {
         Logger log;
@@ -24,7 +25,7 @@ QString DataBaseAccess::getSyntaxParse(QString js)
     }
     QString content;
     QSqlQuery query;
-    QString sql = "select * from " + js + " limit 1";
+    QString sql = "select * from mp_option where option_key = '" + js + "' limit 1";
     query.exec(sql);
     while(query.next())
     {
