@@ -12,11 +12,11 @@ QString MpOptionsDao::markdownToHtmlJs()
     dbconn.setDatabaseName("system");
     if(!dbconn.open())
     {
-        Logger log;
-        log.error("Data Base System Open Failed");
+        MpLog log;
+        log.error("Data Base System Open Failed,Please Confirm it exists...");
     }
     QSqlQuery query;
-    query.exec("select * from mp_options where option_key = 'marked' limit 1");
+    query.exec("select * from script where name = 'marked' limit 1");
     while(query.next())
     {
         js = query.value(2).toString();

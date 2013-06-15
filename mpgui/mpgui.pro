@@ -12,7 +12,8 @@ TEMPLATE = lib
 DEFINES += MPGUI_LIBRARY
 
 INCLUDEPATH += ../include \
-                ../include/log4cpp
+    ../include/log4cpp \
+    ../include/v8
 
 SOURCES += \
     workwidget.cpp \
@@ -67,23 +68,23 @@ RESOURCES += \
 OTHER_FILES += \
     res/skin/default.qss
 
-win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../logger/release/ -llogger
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../logger/debug/ -llogger
-else:unix: LIBS += -L$$OUT_PWD/../logger/ -llogger
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../mplog/release/ -lmplog
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../mplog/debug/ -lmplog
+else:unix: LIBS += -L$$OUT_PWD/../mplog/ -lmplog
 
-INCLUDEPATH += $$PWD/../logger
-DEPENDPATH += $$PWD/../logger
+INCLUDEPATH += $$PWD/../mplog
+DEPENDPATH += $$PWD/../mplog
 
-win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../dba/release/ -ldba
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../dba/debug/ -ldba
-else:unix: LIBS += -L$$OUT_PWD/../dba/ -ldba
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../mpdba/release/ -lmpdba
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../mpdba/debug/ -lmpdba
+else:unix: LIBS += -L$$OUT_PWD/../mpdba/ -lmpdba
 
-INCLUDEPATH += $$PWD/../dba
-DEPENDPATH += $$PWD/../dba
+INCLUDEPATH += $$PWD/../mpdba
+DEPENDPATH += $$PWD/../mpdba
 
-win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../syntaxparse/release/ -lsyntaxparse
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../syntaxparse/debug/ -lsyntaxparse
-else:unix: LIBS += -L$$OUT_PWD/../syntaxparse/ -lsyntaxparse
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../mparse/release/ -lmparse
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../mparse/debug/ -lmparse
+else:unix: LIBS += -L$$OUT_PWD/../mparse/ -lmparse
 
-INCLUDEPATH += $$PWD/../syntaxparse
-DEPENDPATH += $$PWD/../syntaxparse
+INCLUDEPATH += $$PWD/../mparse
+DEPENDPATH += $$PWD/../mparse

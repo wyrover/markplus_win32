@@ -8,13 +8,13 @@ QT       += sql
 
 QT       -= gui
 
-TARGET = dba
+TARGET = mpdba
 
 TEMPLATE = lib
 
 DEFINES += DBA_LIBRARY
 
-SOURCES += databaseaccess.cpp \
+SOURCES += \
     clouduserdao.cpp \
     mpoptionsdao.cpp \
     mpuserdao.cpp \
@@ -25,9 +25,10 @@ SOURCES += databaseaccess.cpp \
     wordpressuser.cpp \
     clouduser.cpp \
     markplususer.cpp \
-    wordpressterm.cpp
+    wordpressterm.cpp \
+    mpdba.cpp
 
-HEADERS += databaseaccess.h\
+HEADERS +=\
         dba_global.h \
     clouduserdao.h \
     mpoptionsdao.h \
@@ -39,7 +40,8 @@ HEADERS += databaseaccess.h\
     wordpressuser.h \
     clouduser.h \
     markplususer.h \
-    wordpressterm.h
+    wordpressterm.h \
+    mpdba.h
 
 unix:!symbian {
     maemo5 {
@@ -54,9 +56,11 @@ unix:!symbian {
 INCLUDEPATH += ../include
 INCLUDEPATH += ../include/log4cpp
 
-win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../logger/release/ -llogger
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../logger/debug/ -llogger
-else:unix: LIBS += -L$$OUT_PWD/../logger/ -llogger
 
-INCLUDEPATH += $$PWD/../logger
-DEPENDPATH += $$PWD/../logger
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../mplog/release/ -lmplog
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../mplog/debug/ -lmplog
+else:unix: LIBS += -L$$OUT_PWD/../mplog/ -lmplog
+
+INCLUDEPATH += $$PWD/../mplog
+DEPENDPATH += $$PWD/../mplog

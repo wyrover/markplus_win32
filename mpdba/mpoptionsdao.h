@@ -6,7 +6,7 @@
 #include <QSqlField>
 #include <QString>
 #include <QTextCodec>
-#include "logger.h"
+#include "mplog.h"
 
 class MpOptionsDao
 {

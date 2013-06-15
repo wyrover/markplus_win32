@@ -1,20 +1,25 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2013-06-01T18:05:24
+# Project created by QtCreator 2013-06-15T08:49:53
 #
 #-------------------------------------------------
 
+QT       += sql
+
 QT       -= gui
 
-TARGET = logger
+TARGET = mplog
 TEMPLATE = lib
 
-DEFINES += LOGGER_LIBRARY
+DEFINES += MPLOG_LIBRARY
 
-SOURCES += logger.cpp
+INCLUDEPATH += ../include \
+            += ../include/log4cpp
 
-HEADERS += logger.h\
-        logger_global.h
+SOURCES += mplog.cpp
+
+HEADERS += mplog.h\
+        mplog_global.h
 
 unix:!symbian {
     maemo5 {
@@ -25,12 +30,6 @@ unix:!symbian {
     INSTALLS += target
 }
 
-
-
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../lib/log4cpp/release/ -llog4cpp
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../lib/log4cpp/debug/ -llog4cpp
 else:unix: LIBS += -L$$PWD/../lib/log4cpp/ -llog4cpp
-
-INCLUDEPATH += $$PWD/../include
-INCLUDEPATH += ../include/log4cpp
-DEPENDPATH += $$PWD/../include

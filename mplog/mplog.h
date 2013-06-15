@@ -1,20 +1,20 @@
-﻿#ifndef LOGGER_H
-#define LOGGER_H
+#ifndef MPLOG_H
+#define MPLOG_H
 
-#include <QObject>
-#include <QString>
-#include "logger_global.h"
+#include "QObject"
+#include "QString"
+#include "mplog_global.h"
 #include "Appender.hh"
 #include "FileAppender.hh"
 #include "BasicLayout.hh"
 #include "Category.hh"
 #include "PropertyConfigurator.hh"
 
-class LOGGERSHARED_EXPORT Logger
+class MPLOGSHARED_EXPORT MpLog
 {
-
+    
 public:
-    Logger();
+    MpLog();
     void debug(QString log);
     void info(QString log);
     void notice(QString log);
@@ -30,4 +30,4 @@ private:
     void initConfig();
 };
 
-#endif // LOGGER_H
+#endif // MPLOG_H
