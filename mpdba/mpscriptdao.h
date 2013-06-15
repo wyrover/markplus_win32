@@ -1,11 +1,10 @@
-#ifndef MPOPTIONSDAO_H
-#define MPOPTIONSDAO_H
+#ifndef MPSCRIPTDAO_H
+#define MPSCRIPTDAO_H
 
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlField>
 #include <QString>
-#include <QTextCodec>
 #include "mplog.h"
 
 class MpScriptDao
@@ -16,4 +15,4 @@ public:
     QString htmlToMarkdownJs();
 };
 
-#endif // MPOPTIONSDAO_H
+#endif // MPSCRIPTDAO_H

@@ -33,6 +33,8 @@ void WorkWidget::initEditor()
     mdEditor = new MdEditor();
     mdEditor->setReadOnly(false);
     ui->splitter->addWidget(mdEditor);
+
+    connect(mdEditor, SIGNAL(textChanged()), this, SLOT(editorToPreview()));
 }
 
 void WorkWidget::initPreview()
@@ -45,8 +47,8 @@ void WorkWidget::initPreview()
 
 void WorkWidget::initToolBar()
 {
-    setMenu = new SetMenu();
-    setMenu->setObjectName("setMenu");
+//    setMenu = new SetMenu();
+//    setMenu->setObjectName("setMenu");
 }
 
 void WorkWidget::switchViewModel( bool singalFlag, bool previewFlag, bool doubleFlag)
@@ -95,7 +97,7 @@ void WorkWidget::on_setBtn_toggled(bool checked)
         point.setX(ui->setBtn->x() - 365);
         point.setY(ui->setBtn->y() + 35);
         point = mapToGlobal(point);
-        setMenu->exec(point);
+        //setMenu->exec(point);
     }
 }
 
@@ -103,4 +105,13 @@ void WorkWidget::on_attributeBtn_clicked()
 {
     attributeDialog = new AttributeDialog();
     attributeDialog->show();
+}
+
+void WorkWidget::editorToPreview()
+{
+    QString markdown = mdEditor->toPlainText();
+    MpLog log;
+    log.error(markdown);
+    QString html = mparse.markdownToHtml(markdown);
+    preview->setHtml(html);
 }

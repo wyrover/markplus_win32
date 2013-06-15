@@ -7,27 +7,17 @@
 #include <QtSql/QSQLiteDriver>
 #include <QtSql/QSQLiteResult>
 #include "mplog.h"
-#include "mpoptionsdao.h"
+#include "mpscriptdao.h"
 #include "dba_global.h"
 
-class DBASHARED_EXPORT MpDba
+class DBASHARED_EXPORT Mpdba
 {
 
 public:
-    MpDba();
-
-    /** 系统属性相关 **/
+    Mpdba();
     QString markdownToHtmlJs();
     QString htmlToMarkdownJs();
 
-    /** 系统用户相关 **/
-
-    /** 云平台用户相关 **/
-
-    /** Wordpress Post 相关 **/
-
-private:
-    MpOptionsDao mp_option_dao;
 };
 
 #endif // MPDBA_H

@@ -1,8 +1,9 @@
 TEMPLATE = subdirs
-SUBDIRS += mpdba \
+SUBDIRS += \
     mpgui \
     markplus \
     mplog \
-    mparse
+    mparse \
+    mpdba
 
 CONFIG += ordered

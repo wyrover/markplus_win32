@@ -1,13 +1,12 @@
-#include "mpoptionsdao.h"
+#include "mpscriptdao.h"
 
-MpOptionsDao::MpOptionsDao()
+MpScriptDao::MpScriptDao()
 {
 }
 
-QString MpOptionsDao::markdownToHtmlJs()
+QString MpScriptDao::markdownToHtmlJs()
 {
     QString js = "";
-    QTextCodec::setCodecForTr(QTextCodec::codecForLocale());
     QSqlDatabase dbconn = QSqlDatabase::addDatabase("QSQLITE");
     dbconn.setDatabaseName("system");
     if(!dbconn.open())
@@ -25,7 +24,7 @@ QString MpOptionsDao::markdownToHtmlJs()
     return js;
 }
 
-QString MpOptionsDao::htmlToMarkdownJs()
+QString MpScriptDao::htmlToMarkdownJs()
 {
     return "";
 }

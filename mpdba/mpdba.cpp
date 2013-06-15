@@ -2,17 +2,18 @@
 #include "QDebug"
 
 
-MpDba::MpDba()
+Mpdba::Mpdba()
 {
 }
 
-QString MpDba::markdownToHtmlJs()
+QString Mpdba::markdownToHtmlJs()
 {
-    return mp_option_dao.markdownToHtmlJs();
+    MpScriptDao dao;
+    return dao.markdownToHtmlJs();
 }
 
-QString MpDba::htmlToMarkdownJs()
+QString Mpdba::htmlToMarkdownJs()
 {
-    MpOptionsDao dao;
-    return mp_option_dao.htmlToMarkdownJs();
+    MpScriptDao dao;
+    return dao.htmlToMarkdownJs();
 }

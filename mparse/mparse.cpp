@@ -10,7 +10,7 @@ Mparse::Mparse()
 
 void Mparse::initEnvironment()
 {
-    MpDba dba;
+    Mpdba dba;
     QString markedJs = dba.markdownToHtmlJs();
     v8::Context::Scope scope(markedContext);
     v8::Handle<v8::String> markedSource = v8::String::New(markedJs.toLatin1().data());
@@ -22,7 +22,7 @@ QString Mparse::markdownToHtml(QString markdown)
 {
     v8::Context::Scope scope(markedContext);
     QString cmd = QString("marked('%1');").arg(markdown);
-    v8::Handle<v8::String> source = v8::String::New(cmd.toLatin1().data());
+    v8::Handle<v8::String> source = v8::String::New(cmd.toUtf8().data());
     v8::Handle<v8::Script> script = v8::Script::Compile(source);
     v8::Handle<v8::Value> result = script->Run();
     v8::String::Utf8Value str(result);

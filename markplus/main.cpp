@@ -18,12 +18,12 @@ int main(int argc, char *argv[])
     set->setValue("window/title", "zhangliang605");
     set->setValue("sqlit/name", "mpdb.db");
     qDebug() << "--------------------------------->" <<str;
-    MpDba dba;
+    Mpdba dba;
     Mparse parse;
     //qDebug() << "------>" << dba.markdownToHtmlJs();
     qDebug() << "------>" << parse.markdownToHtml("---");
-    //MpGui w;
-    //w.show();
+    MpGui w;
+    w.show();
 	return a.exec();
 }
 

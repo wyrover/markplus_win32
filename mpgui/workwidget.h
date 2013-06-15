@@ -8,10 +8,11 @@
 #include <QSplitter>
 #include <QToolButton>
 #include <QtWebKit/QWebView>
-#include "setmenu.h"
 #include "mdeditor.h"
 #include "preview.h"
 #include "attributedialog.h"
+#include "mparse.h"
+#include "mplog.h"
 
 namespace Ui {
     class WorkWidget;
@@ -27,10 +28,11 @@ public:
 
 private:
     Ui::WorkWidget *ui;
-    SetMenu *setMenu;
+    //SetMenu *setMenu;
     MdEditor *mdEditor;
     Preview *preview;
     AttributeDialog *attributeDialog;
+    Mparse mparse;
 
 private:
     void initWorkWidget();
@@ -45,6 +47,7 @@ private slots:
     void on_doubleBtn_clicked();
     void on_setBtn_toggled(bool checked);
     void on_attributeBtn_clicked();
+    void editorToPreview();
 };
 
 #endif // WORKWIDGET_H

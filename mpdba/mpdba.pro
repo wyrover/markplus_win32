@@ -12,11 +12,11 @@ TARGET = mpdba
 
 TEMPLATE = lib
 
-DEFINES += DBA_LIBRARY
+DEFINES += MPDBA_LIBRARY
 
 SOURCES += \
     clouduserdao.cpp \
-    mpoptionsdao.cpp \
+    mpscriptdao.cpp \
     mpuserdao.cpp \
     mppostsdao.cpp \
     wptermsdao.cpp \
@@ -26,12 +26,13 @@ SOURCES += \
     clouduser.cpp \
     markplususer.cpp \
     wordpressterm.cpp \
-    mpdba.cpp
+    mpdba.cpp \
+    mpscriptdao.cpp
 
 HEADERS +=\
         dba_global.h \
     clouduserdao.h \
-    mpoptionsdao.h \
+    mpscriptdao.h \
     mpuserdao.h \
     mppostsdao.h \
     wptermsdao.h \
@@ -41,7 +42,8 @@ HEADERS +=\
     clouduser.h \
     markplususer.h \
     wordpressterm.h \
-    mpdba.h
+    mpdba.h \
+    mpscriptdao.h
 
 unix:!symbian {
     maemo5 {
