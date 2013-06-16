@@ -4,6 +4,7 @@
 #include <QPainter>
 #include <QSettings>
 #include <QTextBlock>
+#include <QTextEdit>
 #include <QPlainTextEdit>
 
 class QWidget;

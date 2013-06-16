@@ -7,6 +7,7 @@
 #include <QList>
 #include <QSplitter>
 #include <QToolButton>
+#include <QStringList>
 #include <QtWebKit/QWebView>
 #include "mdeditor.h"
 #include "preview.h"
@@ -40,6 +41,7 @@ private:
     void initEditor();
     void initPreview();
     void switchViewModel(bool, bool, bool);
+    QString filertIllegChar(QString str);
 
 private slots:
     void on_signalBtn_clicked();

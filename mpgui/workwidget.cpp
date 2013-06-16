@@ -109,9 +109,22 @@ void WorkWidget::on_attributeBtn_clicked()
 
 void WorkWidget::editorToPreview()
 {
-    QString markdown = mdEditor->toPlainText();
+    QString html;
+    QStringList markdown = mdEditor->toPlainText().split("\n");
     MpLog log;
-    log.error(markdown);
-    QString html = mparse.markdownToHtml(markdown);
+    for(int i = 0;i < markdown.size();i++)
+        html.append(mparse.markdownToHtml(filertIllegChar(markdown.at(i))));
+    qDebug() << html;
     preview->setHtml(html);
 }
+
+QString WorkWidget::filertIllegChar(QString str)
+{
+    str.replace("\\", "\\\\");
+    str.replace("\"", "\\\"");
+    str.replace("\'", "\\\'");
+    str.replace("~", "<br/>");
+    str.append("\\n");
+    return str;
+}
+

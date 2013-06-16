@@ -19,6 +19,7 @@ private:
     v8::Persistent<v8::Context> markedContext;
     void initEnvironment();
     const char* ToCString(const v8::String::Utf8Value& value);
+    QString filterIllegalChar(QString input);
 };
 
 #endif // MPARSE_H

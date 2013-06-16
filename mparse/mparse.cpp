@@ -20,9 +20,11 @@ void Mparse::initEnvironment()
 
 QString Mparse::markdownToHtml(QString markdown)
 {
+
+    v8::TryCatch tryCatch;
     v8::Context::Scope scope(markedContext);
-    QString cmd = QString("marked('%1');").arg(markdown);
-    v8::Handle<v8::String> source = v8::String::New(cmd.toUtf8().data());
+    QString cmd = QString("marked(\"%1\");").arg(markdown);
+    v8::Handle<v8::String> source = v8::String::New(cmd.toStdString().data());
     v8::Handle<v8::Script> script = v8::Script::Compile(source);
     v8::Handle<v8::Value> result = script->Run();
     v8::String::Utf8Value str(result);
@@ -36,4 +38,9 @@ QString Mparse::htmlToMarkdown(QString html)
 
 const char* Mparse::ToCString(const v8::String::Utf8Value& value) {
   return *value ? *value : "<string conversion failed>";
+}
+
+QString Mparse::filterIllegalChar(QString input)
+{
+    return input;
 }

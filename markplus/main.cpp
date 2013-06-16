@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     qDebug() << "--------------------------------->" <<str;
     Mpdba dba;
     Mparse parse;
-    //qDebug() << "------>" << dba.markdownToHtmlJs();
+    qDebug() << "------>" << dba.markdownToHtmlJs();
     qDebug() << "------>" << parse.markdownToHtml("---");
     MpGui w;
     w.show();
