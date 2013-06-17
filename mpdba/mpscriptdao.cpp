@@ -7,7 +7,8 @@ MpScriptDao::MpScriptDao()
 QString MpScriptDao::markdownToHtmlJs()
 {
     QString js = "";
-    QSqlDatabase dbconn = QSqlDatabase::addDatabase("QSQLITE");
+    QSqlDatabase dbconn;
+    dbconn = QSqlDatabase::addDatabase("QSQLITE");
     dbconn.setDatabaseName("system");
     if(!dbconn.open())
     {

@@ -5,6 +5,7 @@
 #include <QPoint>
 #include <QObject>
 #include <QRect>
+#include <QSize>
 #include <QSettings>
 #include <QMouseEvent>
 #include <QDesktopWidget>

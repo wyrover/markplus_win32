@@ -7,6 +7,7 @@
 #include "titlebar.h"
 #include "statusbar.h"
 #include "workwidget.h"
+#include "windowstatus.h"
 
 namespace Ui {
     class MpGui;
@@ -25,14 +26,19 @@ public:
 
 private:
     Ui::MpGui *ui;
-    TitleBar *titleBar;
     StatusBar *statusBar;
     WorkWidget *workWidget;
+    WindowStatus *windowStatus;
 
-    void initTitleBar();
+    void initMpGui();
     void initStatusBar();
     void initWorkWidget();
     void initStyleSheet();
+
+    void mouseDoubleClickEvent(QMouseEvent *);
+    void mouseMoveEvent(QMouseEvent *);
+    void mousePressEvent(QMouseEvent *);
+    void mouseReleaseEvent(QMouseEvent *);
 
 };
 

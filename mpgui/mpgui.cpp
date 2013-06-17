@@ -8,10 +8,10 @@ MpGui::MpGui(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowFlags( Qt::FramelessWindowHint | Qt::WindowSystemMenuHint | Qt::WindowMinimizeButtonHint);
-    initTitleBar();
     initWorkWidget();
     initStatusBar();
     initStyleSheet();
+    initMpGui();
 }
 
 MpGui::~MpGui()
@@ -19,18 +19,18 @@ MpGui::~MpGui()
     delete ui;
 }
 
-void MpGui::initTitleBar()
+void MpGui::initMpGui()
 {
-    //初始化标题栏
-    titleBar = new TitleBar(true, true, true, this);
-    ui->mainLayout->addWidget(titleBar);
+    windowStatus = new WindowStatus();
+    setGeometry(windowStatus->getRestoreWindowRect());
+    statusBar->setSizeGripEnabled(!windowStatus->getMaxWin());
 }
 
 void MpGui::initStatusBar()
 {
     //初始化状态栏
     statusBar = new StatusBar();
-    ui->mainLayout->addWidget(statusBar);
+    ui->statusBarLayout->addWidget(statusBar);
 }
 
 StatusBar* MpGui::getStatusBar()
@@ -42,7 +42,7 @@ void MpGui::initWorkWidget()
 {
     //初始化workwidget
     workWidget = new WorkWidget();
-    ui->mainLayout->addWidget(workWidget);
+    ui->centralEditLayout->addWidget(workWidget);
 }
 
 void MpGui::initStyleSheet()
@@ -56,4 +56,24 @@ void MpGui::initStyleSheet()
         qApp->setStyleSheet(qss);
         qssFile.close();
     }
+}
+
+void MpGui::mouseDoubleClickEvent(QMouseEvent *event)
+{
+
+}
+
+void MpGui::mouseMoveEvent(QMouseEvent *event)
+{
+
+}
+
+void MpGui::mousePressEvent(QMouseEvent *event)
+{
+
+}
+
+void MpGui::mouseReleaseEvent(QMouseEvent *event)
+{
+
 }
