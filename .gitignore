@@ -19,3 +19,5 @@ lib/
 lib
 MpGui/Debug/
 MpGui/GeneratedFiles/
+
+/*.user

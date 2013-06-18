@@ -34,6 +34,7 @@ private:
     void initStatusBar();
     void initWorkWidget();
     void initStyleSheet();
+    void showMaxRestore();
 
     void mouseDoubleClickEvent(QMouseEvent *);
     void mouseMoveEvent(QMouseEvent *);

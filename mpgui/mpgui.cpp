@@ -60,20 +60,54 @@ void MpGui::initStyleSheet()
 
 void MpGui::mouseDoubleClickEvent(QMouseEvent *event)
 {
-
+    if(event->button() == Qt::LeftButton && event->y() <= 40)
+        showMaxRestore();
 }
 
 void MpGui::mouseMoveEvent(QMouseEvent *event)
 {
-
+    if(!windowStatus->getMaxWin() && windowStatus->getLeftButtonPress() && event->y() <= 40)
+    {
+        QPoint pMove = event->globalPos();
+        windowStatus->setMovePoint(pMove);
+        move(pos() + pMove - windowStatus->getPressGlobalPoint());
+        windowStatus->setPressGlobalPoint(pMove);
+    }
 }
 
 void MpGui::mousePressEvent(QMouseEvent *event)
 {
-
+    if(event->button() == Qt::LeftButton)
+    {
+        windowStatus->setLeftButtonPress(true);
+        windowStatus->setPressGlobalPoint(event->globalPos());
+    }
+    event->ignore();
 }
 
 void MpGui::mouseReleaseEvent(QMouseEvent *event)
 {
+    if(event->button() == Qt::LeftButton)
+    {
+        windowStatus->setLeftButtonPress(false);
+    }
+    event->ignore();
+}
+
+void MpGui::showMaxRestore()
+{
+    if(!windowStatus->getMaxWin())
+    {
+        windowStatus->setRestoreWindowRect(geometry());
+        setGeometry(qApp->desktop()->availableGeometry());
+        statusBar->setSizeGripEnabled(windowStatus->getMaxWin());
+    }
+    else
+    {
+        setGeometry(windowStatus->getRestoreWindowRect());
+        statusBar->setSizeGripEnabled(true);
+    }
+    windowStatus->setLeftButtonPress(false);
+    windowStatus->setMaxWin(!windowStatus->getMaxWin());
 
 }
