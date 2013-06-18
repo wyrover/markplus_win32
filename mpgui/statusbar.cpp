@@ -3,4 +3,5 @@
 StatusBar::StatusBar()
 {
     setAttribute(Qt::WA_TranslucentBackground, false);
+    setMouseTracking(true);
 }

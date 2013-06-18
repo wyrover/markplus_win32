@@ -12,9 +12,6 @@
 #include "mpgui.h"
 #include "config.h"
 
-#define VALUE_DIS 5
-#define VALUE_TITLE_HEIGHT 20
-
 namespace Ui {
 class TitleBar;
 }

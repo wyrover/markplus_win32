@@ -13,11 +13,10 @@ Release
 /dba/Debug
 /logger/Debug
 /unitTest/Debug
-/lib/v8/debug
 /syntaxparse/Debug
-lib/
-lib
 MpGui/Debug/
 MpGui/GeneratedFiles/
-
 /*.user
+lib\
+
+lib

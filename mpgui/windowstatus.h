@@ -8,9 +8,6 @@
 #include <QDesktopWidget>
 #include "config.h"
 
-#define VALUE_DIS 5
-#define VALUE_TITLE_HEIGHT 20
-
 class WindowStatus
 {
 public:
@@ -18,21 +15,33 @@ public:
     QPoint getPressGlobalPoint();
     QPoint getMovePoint();
     QRect getRestoreWindowRect();
+    QRect getMaxSize();
     bool getLeftButtonPress();
     bool getMaxWin();
+    bool getOnMove();
+    bool getOnResize();
+    enum_Direction getDirection();
     void setPressGlobalPoint(QPoint point);
     void setMovePoint(QPoint point);
     void setRestoreWindowRect(QRect rect);
     void setLeftButtonPress(bool press);
     void setMaxWin(bool maxWin);
+    void setMaxSize(QRect rect);
+    void setDirection(enum_Direction direction);
+    void setOnMove(bool onMove);
+    void setOnResize(bool onResize);
 
 private:
     void initParams();
     QPoint m_pPressGlobal;
     QPoint m_ptMove;
-    QRect m_rectRestoreWindow;
+    QRect m_rRestoreWindow;
+    QRect m_rMaxSize;
     bool m_bLeftBtnPress;
     bool m_bMaxWin;
+    bool m_bOnMove;
+    bool m_bOnResize;
+    enum_Direction m_eDirection;
 
 };
 

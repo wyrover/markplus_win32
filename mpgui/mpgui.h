@@ -4,10 +4,10 @@
 #include <QWidget>
 #include <QFrame>
 #include "mpgui_global.h"
-#include "titlebar.h"
 #include "statusbar.h"
 #include "workwidget.h"
 #include "windowstatus.h"
+#include "config.h"
 
 namespace Ui {
     class MpGui;
@@ -35,6 +35,9 @@ private:
     void initWorkWidget();
     void initStyleSheet();
     void showMaxRestore();
+    void setCursorSytle(enum_Direction direction);
+    void setDrayMove(int nXRelative, int nYRelative, enum_Direction direction);
+    enum_Direction pointValid(int nXRelative, int nYRelative);
 
     void mouseDoubleClickEvent(QMouseEvent *);
     void mouseMoveEvent(QMouseEvent *);

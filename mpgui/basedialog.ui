@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>94</width>
+    <width>253</width>
     <height>447</height>
    </rect>
   </property>
@@ -61,10 +61,10 @@ border-bottom-color: rgb(238, 238, 238);</string>
        <widget class="QLabel" name="label">
         <property name="font">
          <font>
-          <family>Aharoni</family>
+          <family>微软雅黑</family>
           <pointsize>28</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="styleSheet">

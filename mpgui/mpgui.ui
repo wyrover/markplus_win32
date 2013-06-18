@@ -10,6 +10,9 @@
     <height>724</height>
    </rect>
   </property>
+  <property name="mouseTracking">
+   <bool>true</bool>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
@@ -18,7 +21,7 @@
     <number>0</number>
    </property>
    <property name="margin">
-    <number>0</number>
+    <number>3</number>
    </property>
    <item>
     <widget class="QWidget" name="titleBar" native="true">
@@ -33,6 +36,9 @@
        <width>16777215</width>
        <height>25</height>
       </size>
+     </property>
+     <property name="mouseTracking">
+      <bool>true</bool>
      </property>
      <layout class="QHBoxLayout" name="titleBarLayout">
       <property name="spacing">
@@ -52,7 +58,10 @@
        <height>16777215</height>
       </size>
      </property>
-     <widget class="QWidget" name="centralEditPage" native="true">
+     <property name="mouseTracking">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="centralEditPage">
       <layout class="QVBoxLayout" name="centralEditLayout">
        <property name="spacing">
         <number>0</number>
@@ -77,6 +86,9 @@
        <width>16777215</width>
        <height>25</height>
       </size>
+     </property>
+     <property name="mouseTracking">
+      <bool>true</bool>
      </property>
      <layout class="QHBoxLayout" name="statusBarLayout">
       <property name="spacing">
