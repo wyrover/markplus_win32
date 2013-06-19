@@ -19,7 +19,6 @@ SOURCES += \
     workwidget.cpp \
     titlebar.cpp \
     statusbar.cpp \
-    setmenu.cpp \
     qtwin.cpp \
     preview.cpp \
     mpgui.cpp \
@@ -27,14 +26,14 @@ SOURCES += \
     flowlayout.cpp \
     basedialog.cpp \
     attributedialog.cpp \
-    windowstatus.cpp
+    windowstatus.cpp \
+    setupmenu.cpp
 
 HEADERS +=\
         mpgui_global.h \
     workwidget.h \
     titlebar.h \
     statusbar.h \
-    setmenu.h \
     qtwin.h \
     preview.h \
     mpgui_global.h \
@@ -44,7 +43,8 @@ HEADERS +=\
     config.h \
     basedialog.h \
     attributedialog.h \
-    windowstatus.h
+    windowstatus.h \
+    setupmenu.h
 
 unix:!symbian {
     maemo5 {

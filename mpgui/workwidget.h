@@ -14,6 +14,7 @@
 #include "attributedialog.h"
 #include "mparse.h"
 #include "mplog.h"
+#include "setupmenu.h"
 
 namespace Ui {
     class WorkWidget;
@@ -29,11 +30,11 @@ public:
 
 private:
     Ui::WorkWidget *ui;
-    //SetMenu *setMenu;
     MdEditor *mdEditor;
     Preview *preview;
     AttributeDialog *attributeDialog;
     Mparse mparse;
+    SetupMenu *setupMenu;
 
 private:
     void initWorkWidget();
@@ -47,9 +48,9 @@ private slots:
     void on_signalBtn_clicked();
     void on_previewBtn_clicked();
     void on_doubleBtn_clicked();
-    void on_setBtn_toggled(bool checked);
     void on_attributeBtn_clicked();
     void editorToPreview();
+    void adjustSetupMenu();
 };
 
 #endif // WORKWIDGET_H

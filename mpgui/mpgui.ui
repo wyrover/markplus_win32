@@ -16,6 +16,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <layout class="QVBoxLayout" name="mainLayout">
    <property name="spacing">
     <number>0</number>
@@ -24,7 +27,7 @@
     <number>3</number>
    </property>
    <item>
-    <widget class="QWidget" name="titleBar" native="true">
+    <widget class="QWidget" name="titleBarWidget" native="true">
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -39,6 +42,9 @@
      </property>
      <property name="mouseTracking">
       <bool>true</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
      </property>
      <layout class="QHBoxLayout" name="titleBarLayout">
       <property name="spacing">
@@ -62,6 +68,9 @@
       <bool>true</bool>
      </property>
      <widget class="QWidget" name="centralEditPage">
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
       <layout class="QVBoxLayout" name="centralEditLayout">
        <property name="spacing">
         <number>0</number>

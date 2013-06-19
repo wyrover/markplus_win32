@@ -22,8 +22,33 @@ QMenu {
 QMenu::item {
     margin: 0px, 0px, 0px, 0px;
     padding: 10px;
+    font-family:'Segoe UI', Arial, 'Microsoft Yahei', Simsun, sans-serif;
 }
 
 QMenu::item:selected {
     background-color: #eeeeee;
+    font-family:'Segoe UI', Arial, 'Microsoft Yahei', Simsun, sans-serif;
+}
+
+QToolButton, QPushButton {
+    background: #E0E0E0;
+    color: black;
+    border: 1px solid #ddd;
+    width:100px;
+    font-family:'Segoe UI', Arial, 'Microsoft Yahei', Simsun, sans-serif;
+}
+
+QToolButton:hover, QPushButton:hover ,QToolButton:checked{
+    background: #1f8dd6;
+    color: white;
+    border: 1px solid #ddd;
+    font-family:'Segoe UI', Arial, 'Microsoft Yahei', Simsun, sans-serif;
+}
+
+QToolButton::menu-indicator{
+     image: None;
+}
+
+QWebView{
+    font-family:'Segoe UI', Arial, 'Microsoft Yahei', Simsun, sans-serif;
 }

@@ -47,8 +47,14 @@ void WorkWidget::initPreview()
 
 void WorkWidget::initToolBar()
 {
-//    setMenu = new SetMenu();
-//    setMenu->setObjectName("setMenu");
+    setupMenu = new SetupMenu();
+    setupMenu->setObjectName("setupMenu");
+    ui->setBtn->setMenu(setupMenu);
+
+    connect(setupMenu, SIGNAL(setupMenuShowSignal()), this, SLOT(adjustSetupMenu()));
+    connect(setupMenu->prePost, SIGNAL(triggered()), this, SLOT(on_previewBtn_clicked()));
+    connect(setupMenu->editPost, SIGNAL(triggered()), this, SLOT(on_signalBtn_clicked()));
+    connect(setupMenu->doubleView, SIGNAL(triggered()), this, SLOT(on_doubleBtn_clicked()));
 }
 
 void WorkWidget::switchViewModel( bool singalFlag, bool previewFlag, bool doubleFlag)
@@ -89,18 +95,6 @@ void WorkWidget::on_doubleBtn_clicked()
     switchViewModel(false, false, true);
 }
 
-void WorkWidget::on_setBtn_toggled(bool checked)
-{
-    if(checked)
-    {
-        QPoint point;
-        point.setX(ui->setBtn->x() - 365);
-        point.setY(ui->setBtn->y() + 35);
-        point = mapToGlobal(point);
-        //setMenu->exec(point);
-    }
-}
-
 void WorkWidget::on_attributeBtn_clicked()
 {
     attributeDialog = new AttributeDialog();
@@ -123,8 +117,15 @@ QString WorkWidget::filertIllegChar(QString str)
     str.replace("\\", "\\\\");
     str.replace("\"", "\\\"");
     str.replace("\'", "\\\'");
-    str.replace("~", "<br/>");
     str.append("\\n");
     return str;
 }
 
+void WorkWidget::adjustSetupMenu()
+{
+    QPoint pos = mapToGlobal(ui->setBtn->pos());
+    pos.setX(pos.x() + ui->setBtn->width() - setupMenu->width());
+    pos.setY(pos.y() + ui->setBtn->height());
+    setupMenu->popup(pos);
+    qDebug() << pos;
+}

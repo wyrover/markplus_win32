@@ -10,6 +10,9 @@
     <height>654</height>
    </rect>
   </property>
+  <property name="mouseTracking">
+   <bool>true</bool>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
@@ -24,7 +27,7 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QWidget" name="widget" native="true">
+    <widget class="QWidget" name="toolBarWidget" native="true">
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -36,6 +39,12 @@
        <width>16777215</width>
        <height>40</height>
       </size>
+     </property>
+     <property name="mouseTracking">
+      <bool>true</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <property name="spacing">
@@ -73,6 +82,9 @@
           <height>32</height>
          </size>
         </property>
+        <property name="mouseTracking">
+         <bool>true</bool>
+        </property>
         <property name="text">
          <string> Publish </string>
         </property>
@@ -98,6 +110,9 @@
           <height>32</height>
          </size>
         </property>
+        <property name="mouseTracking">
+         <bool>true</bool>
+        </property>
         <property name="text">
          <string>New</string>
         </property>
@@ -118,6 +133,9 @@
       </item>
       <item>
        <widget class="QWidget" name="viewSwitch" native="true">
+        <property name="mouseTracking">
+         <bool>true</bool>
+        </property>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <property name="spacing">
           <number>0</number>
@@ -138,6 +156,9 @@
              <width>16777215</width>
              <height>32</height>
             </size>
+           </property>
+           <property name="mouseTracking">
+            <bool>true</bool>
            </property>
            <property name="text">
             <string>Signal</string>
@@ -164,6 +185,9 @@
              <height>32</height>
             </size>
            </property>
+           <property name="mouseTracking">
+            <bool>true</bool>
+           </property>
            <property name="text">
             <string>Preview</string>
            </property>
@@ -188,6 +212,9 @@
              <width>16777215</width>
              <height>32</height>
             </size>
+           </property>
+           <property name="mouseTracking">
+            <bool>true</bool>
            </property>
            <property name="text">
             <string>Double</string>
@@ -236,6 +263,9 @@
           <height>32</height>
          </size>
         </property>
+        <property name="mouseTracking">
+         <bool>true</bool>
+        </property>
         <property name="text">
          <string> i </string>
         </property>
@@ -261,11 +291,17 @@
           <height>32</height>
          </size>
         </property>
+        <property name="mouseTracking">
+         <bool>true</bool>
+        </property>
         <property name="text">
          <string>S</string>
         </property>
         <property name="checkable">
          <bool>true</bool>
+        </property>
+        <property name="popupMode">
+         <enum>QToolButton::InstantPopup</enum>
         </property>
        </widget>
       </item>
@@ -274,7 +310,13 @@
    </item>
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
+     <property name="mouseTracking">
+      <bool>true</bool>
+     </property>
      <widget class="QWidget" name="editorPage">
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <property name="spacing">
         <number>0</number>
@@ -303,7 +345,11 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="page_2"/>
+     <widget class="QWidget" name="page_2">
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+     </widget>
     </widget>
    </item>
   </layout>
