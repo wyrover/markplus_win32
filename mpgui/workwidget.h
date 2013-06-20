@@ -38,6 +38,7 @@ private:
     Mparse mparse;
     SetupMenu *setupMenu;
     QString html;
+    QString markdown;
 
 private:
     void initWorkWidget();
@@ -46,6 +47,7 @@ private:
     void initPreview();
     void switchViewModel(bool, bool, bool);
     QString filertIllegChar(QString str);
+    bool newPostFlag;
 
 private slots:
     void on_signalBtn_clicked();

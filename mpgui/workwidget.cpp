@@ -33,6 +33,8 @@ void WorkWidget::initEditor()
     mdEditor = new MdEditor();
     mdEditor->setReadOnly(false);
     ui->splitter->addWidget(mdEditor);
+    markdown = "###Welcome to the world of markdown\n* you can edit the text with markdown\n* you can preview the document\n* you can export the text to local file";
+    mdEditor->insertPlainText(markdown);
 
     connect(mdEditor, SIGNAL(textChanged()), this, SLOT(editorToPreview()));
 }
@@ -40,7 +42,8 @@ void WorkWidget::initEditor()
 void WorkWidget::initPreview()
 {
     preview = new Preview();
-    preview->setHtml("<h1>Welcome to the world of Markdown</h1><hr/><ul><li>aaa</li><li>bbb</li><li>ccc</li></ul>");
+    editorToPreview();
+    preview->setHtml(html);
     qDebug() << ui->editorPage->width();
     ui->splitter->addWidget(preview);
 }
@@ -50,6 +53,7 @@ void WorkWidget::initToolBar()
     setupMenu = new SetupMenu();
     setupMenu->setObjectName("setupMenu");
     ui->setBtn->setMenu(setupMenu);
+    newPostFlag = false;
 
     connect(setupMenu, SIGNAL(setupMenuShowSignal()), this, SLOT(adjustSetupMenu()));
     connect(setupMenu->prePost, SIGNAL(triggered()), this, SLOT(on_previewBtn_clicked()));
@@ -106,17 +110,35 @@ void WorkWidget::on_attributeBtn_clicked()
 
 void WorkWidget::on_newBtn_clicked()
 {
-
+    if(!mdEditor->toPlainText().isEmpty())
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Do you want to save the text");
+        msgBox.setIcon(QMessageBox::Question);
+        msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Cancel);
+        msgBox.setDefaultButton(QMessageBox::Cancel);
+        int ret = msgBox.exec();
+        qDebug() << ret;
+        if(ret == 2048)
+        {
+            newPostFlag = true;
+            saveMarkdownFile();
+        }
+        else
+        {
+            mdEditor->clear();
+        }
+    }
 }
 
 void WorkWidget::editorToPreview()
 {
     QString htmlStr;
-    QStringList markdown = mdEditor->toPlainText().split("\n");
-    for(int i = 0;i < markdown.size();i++)
-        htmlStr.append(mparse.markdownToHtml(filertIllegChar(markdown.at(i))));
+    markdown = mdEditor->toPlainText();
+    QStringList markdownlist = markdown.split("\n");
+    for(int i = 0;i < markdownlist.size();i++)
+        htmlStr.append(mparse.markdownToHtml(filertIllegChar(markdownlist.at(i))));
     html = htmlStr;
-    qDebug() << html;
     preview->setHtml(html);
 }
 
@@ -135,7 +157,6 @@ void WorkWidget::adjustSetupMenu()
     pos.setX(pos.x() + ui->setBtn->width() - setupMenu->width());
     pos.setY(pos.y() + ui->setBtn->height());
     setupMenu->popup(pos);
-    qDebug() << pos;
 }
 
 void WorkWidget::saveMarkdownFile()
@@ -148,10 +169,15 @@ void WorkWidget::saveMarkdownFile()
             QMessageBox::critical(NULL, tr("note"), tr("can not create file"));
             return;
         }
-        QTextStream out(&file);
-        out << mdEditor->toPlainText();
+        QTextStream out(&file);;
+        out << markdown;
         out.flush();
         file.close();
+    }
+    if(newPostFlag)
+    {
+        mdEditor->clear();
+        newPostFlag = false;
     }
 }
 
