@@ -1,8 +1,8 @@
 <RCC>
     <qresource prefix="/">
+        <file>res/skin/default.qss</file>
         <file>res/img/IDR_CLOSE_DIALOG.png</file>
         <file>res/img/IDR_CLOSE_DIALOG_H.png</file>
         <file>res/img/IDR_CLOSE_DIALOG_P.png</file>
-        <file>res/skin/default.qss</file>
     </qresource>
 </RCC>

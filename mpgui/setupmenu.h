@@ -16,7 +16,7 @@ public:
     QAction* find;
     QAction* print;
     QAction* save;
-    QAction* saveAs;
+    QAction* saveToHtml;
     QAction* syncPost;
     QAction* setAccount;
     QAction* setAction;

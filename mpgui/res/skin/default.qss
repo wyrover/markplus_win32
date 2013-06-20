@@ -30,7 +30,7 @@ QMenu::item:selected {
     font-family:'Segoe UI', Arial, 'Microsoft Yahei', Simsun, sans-serif;
 }
 
-QToolButton, QPushButton {
+QToolButton, #publishBtn,#newBtn,#attributeBtn {
     background: #E0E0E0;
     color: black;
     border: 1px solid #ddd;
@@ -38,7 +38,7 @@ QToolButton, QPushButton {
     font-family:'Segoe UI', Arial, 'Microsoft Yahei', Simsun, sans-serif;
 }
 
-QToolButton:hover, QPushButton:hover ,QToolButton:checked{
+QToolButton:hover, #publishBtn:hover, #newBtn:hover, #attributeBtn:hover, QToolButton:checked{
     background: #1f8dd6;
     color: white;
     border: 1px solid #ddd;
@@ -51,4 +51,49 @@ QToolButton::menu-indicator{
 
 QWebView{
     font-family:'Segoe UI', Arial, 'Microsoft Yahei', Simsun, sans-serif;
+}
+
+#toolBarWidget {
+    background-color: transparent;
+}
+
+QScrollBar:vertical
+{
+    /*border-top:1px solid #86A3DA;*/
+    background-color:white;
+    max-width:14px;
+    min-width:14px;
+}
+QScrollBar::handle:vertical {
+    /*background:url(skins/img/ButtonBg/bg-scroll-3-1.png) no-repeat;*/
+    background-color:#cecece;
+    min-width:13px;
+    min-height:39px;
+    max-width:13px;
+    max-height:39px;
+    margin-right:1px;
+}
+QScrollBar::handle:vertical:hover
+{
+    /*background:url(skins/img/ButtonBg/bg-scroll-3-2.png) no-repeat;*/
+    background-color:#7b7b7b;
+}
+QScrollBar::add-line:vertical {
+      border: none;
+      background:rgb(0,0,0,0);
+      width:0px;
+      height:0px;
+      subcontrol-position: bottom;
+      subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical{
+      border:none;
+      background:rgb(0,0,0,0);
+      width:0px;
+      height:0px;
+      subcontrol-position: top;
+      subcontrol-origin: margin;
+}
+QScrollBar::add-page:vertical , QScrollBar::sub-page:vertical {
+      background: none;
 }

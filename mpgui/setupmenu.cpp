@@ -16,22 +16,22 @@ void SetupMenu::initSetMenu()
 
 void SetupMenu::initActions()
 {
-    editPost = new QAction(QObject::tr("Switch to Markdown Edit"), this);
+    editPost = new QAction(QObject::tr("Editor View"), this);
     editPost->setShortcut(QObject::tr("Ctrl+E"));
-    prePost = new QAction(QObject::tr("Preview Post(P)"), this);
+    prePost = new QAction(QObject::tr("Preview View(P)"), this);
     prePost->setShortcut(QObject::tr("Ctrl+P"));
-    doubleView = new QAction(QObject::tr("Switch to Double View(D)"), this);
+    doubleView = new QAction(QObject::tr("Double View(D)"), this);
     doubleView->setShortcut(QObject::tr("Ctrl+D"));
     pubPost = new QAction(QObject::tr("Publish Post(T)"), this);
     pubPost->setShortcut(QObject::tr("Ctrl+T"));
     find = new QAction(QObject::tr("Find(F)"), this);
     find->setShortcut(QObject::tr("Ctrl+F"));
     print = new QAction(QObject::tr("Print(P)"), this);
-    print->setShortcut(QObject::tr("Ctrl+P"));
+    print->setShortcut(QObject::tr("Ctrl+Alt+P"));
     save = new QAction(QObject::tr("Save(S)"), this);
     save->setShortcut(QObject::tr("Ctrl+S"));
-    saveAs = new QAction(QObject::tr("Save As...(A)"), this);
-    saveAs->setShortcut(QObject::tr("Alt+A"));
+    saveToHtml = new QAction(QObject::tr("Save To Html(H)"), this);
+    saveToHtml->setShortcut(QObject::tr("Ctrl+H"));
     syncPost = new QAction(QObject::tr("Sync To Clound"), this);
     setAccount = new QAction(QObject::tr("Set Your Account"), this);
     setAction = new QAction(QObject::tr("Setting"), this);
@@ -44,12 +44,12 @@ void SetupMenu::initActions()
     addAction(doubleView);
     addAction(editPost);
     addAction(prePost);
-    addAction(pubPost);
+    //addAction(pubPost);
     addSeparator();
-    addAction(find);
-    addAction(print);
+    //addAction(find);
+    //addAction(print);
     addAction(save);
-    addAction(saveAs);
+    addAction(saveToHtml);
     addSeparator();
     addAction(syncPost);
     addAction(setAccount);

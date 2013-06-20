@@ -55,6 +55,9 @@ void WorkWidget::initToolBar()
     connect(setupMenu->prePost, SIGNAL(triggered()), this, SLOT(on_previewBtn_clicked()));
     connect(setupMenu->editPost, SIGNAL(triggered()), this, SLOT(on_signalBtn_clicked()));
     connect(setupMenu->doubleView, SIGNAL(triggered()), this, SLOT(on_doubleBtn_clicked()));
+    connect(setupMenu->save, SIGNAL(triggered()), this, SLOT(saveMarkdownFile()));
+    connect(setupMenu->saveToHtml, SIGNAL(triggered()), this, SLOT(saveHtmlFile()));
+    connect(setupMenu->exit, SIGNAL(triggered()), qApp, SLOT(quit()));
 }
 
 void WorkWidget::switchViewModel( bool singalFlag, bool previewFlag, bool doubleFlag)
@@ -103,11 +106,11 @@ void WorkWidget::on_attributeBtn_clicked()
 
 void WorkWidget::editorToPreview()
 {
-    QString html;
+    QString htmlStr;
     QStringList markdown = mdEditor->toPlainText().split("\n");
-    MpLog log;
     for(int i = 0;i < markdown.size();i++)
-        html.append(mparse.markdownToHtml(filertIllegChar(markdown.at(i))));
+        htmlStr.append(mparse.markdownToHtml(filertIllegChar(markdown.at(i))));
+    html = htmlStr;
     qDebug() << html;
     preview->setHtml(html);
 }
@@ -128,4 +131,38 @@ void WorkWidget::adjustSetupMenu()
     pos.setY(pos.y() + ui->setBtn->height());
     setupMenu->popup(pos);
     qDebug() << pos;
+}
+
+void WorkWidget::saveMarkdownFile()
+{
+    QString filePath = QFileDialog::getSaveFileName();
+    if(!filePath.isEmpty()) {
+        QFile file(filePath);
+        //方式：Append为追加，WriteOnly，ReadOnly
+        if (!file.open(QIODevice::WriteOnly|QIODevice::Text)) {
+            QMessageBox::critical(NULL, tr("note"), tr("can not create file"));
+            return;
+        }
+        QTextStream out(&file);
+        out << mdEditor->toPlainText();
+        out.flush();
+        file.close();
+    }
+}
+
+void WorkWidget::saveHtmlFile()
+{
+    QString filePath = QFileDialog::getSaveFileName();
+    if(!filePath.isEmpty()) {
+        QFile file(filePath);
+        //方式：Append为追加，WriteOnly，ReadOnly
+        if (!file.open(QIODevice::WriteOnly|QIODevice::Text)) {
+            QMessageBox::critical(NULL, tr("note"), tr("can not create file"));
+            return;
+        }
+        QTextStream out(&file);
+        out << html;
+        out.flush();
+        file.close();
+    }
 }

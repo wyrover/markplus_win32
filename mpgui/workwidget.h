@@ -8,6 +8,8 @@
 #include <QSplitter>
 #include <QToolButton>
 #include <QStringList>
+#include <QFileDialog>
+#include <QMessageBox>
 #include <QtWebKit/QWebView>
 #include "mdeditor.h"
 #include "preview.h"
@@ -35,6 +37,7 @@ private:
     AttributeDialog *attributeDialog;
     Mparse mparse;
     SetupMenu *setupMenu;
+    QString html;
 
 private:
     void initWorkWidget();
@@ -51,6 +54,8 @@ private slots:
     void on_attributeBtn_clicked();
     void editorToPreview();
     void adjustSetupMenu();
+    void saveMarkdownFile();
+    void saveHtmlFile();
 };
 
 #endif // WORKWIDGET_H
