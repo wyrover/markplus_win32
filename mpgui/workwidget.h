@@ -56,6 +56,7 @@ private slots:
     void adjustSetupMenu();
     void saveMarkdownFile();
     void saveHtmlFile();
+    void on_newBtn_clicked();
 };
 
 #endif // WORKWIDGET_H

@@ -104,6 +104,11 @@ void WorkWidget::on_attributeBtn_clicked()
     attributeDialog->show();
 }
 
+void WorkWidget::on_newBtn_clicked()
+{
+
+}
+
 void WorkWidget::editorToPreview()
 {
     QString htmlStr;

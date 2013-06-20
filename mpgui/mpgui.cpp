@@ -204,3 +204,18 @@ void MpGui::setDrayMove(int nXGlobal, int nYGlobal, enum_Direction direction)
             && rectWindow.height() < windowStatus->getMaxSize().height())
         setGeometry(rectWindow);
 }
+
+void MpGui::on_closeBtn_clicked()
+{
+    qApp->quit();
+}
+
+void MpGui::on_maxBtn_clicked()
+{
+    showMaxRestore();
+}
+
+void MpGui::on_minBtn_clicked()
+{
+    showMinimized();
+}

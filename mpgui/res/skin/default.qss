@@ -30,6 +30,16 @@ QMenu::item:selected {
     font-family:'Segoe UI', Arial, 'Microsoft Yahei', Simsun, sans-serif;
 }
 
+#minBtn,#maxBtn,#closeBtn {
+    background-color: transparent;
+    color: black;
+}
+#minBtn:hover,#maxBtn:hover,#closeBtn:hover {
+    background: white;
+    color: black;
+    border: 1px solid #ddd;
+}
+
 QToolButton, #publishBtn,#newBtn,#attributeBtn {
     background: #E0E0E0;
     color: black;

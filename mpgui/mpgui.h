@@ -24,6 +24,13 @@ public:
     ~MpGui();
     StatusBar* getStatusBar();
 
+private slots:
+    void on_closeBtn_clicked();
+
+    void on_maxBtn_clicked();
+
+    void on_minBtn_clicked();
+
 private:
     Ui::MpGui *ui;
     StatusBar *statusBar;
