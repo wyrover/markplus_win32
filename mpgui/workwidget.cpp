@@ -115,16 +115,16 @@ void WorkWidget::on_newBtn_clicked()
         QMessageBox msgBox;
         msgBox.setText("Do you want to save the text");
         msgBox.setIcon(QMessageBox::Question);
-        msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Cancel);
+        msgBox.setStandardButtons(QMessageBox::Yes  | QMessageBox::No | QMessageBox::Cancel);
         msgBox.setDefaultButton(QMessageBox::Cancel);
         int ret = msgBox.exec();
         qDebug() << ret;
-        if(ret == 2048)
+        if(ret == 16384)
         {
             newPostFlag = true;
             saveMarkdownFile();
         }
-        else
+        else if(ret == 65536)
         {
             mdEditor->clear();
         }
