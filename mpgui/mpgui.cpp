@@ -69,7 +69,6 @@ void MpGui::mouseDoubleClickEvent(QMouseEvent *event)
 
 void MpGui::mouseMoveEvent(QMouseEvent *event)
 {
-    qDebug() << "x = " << event->x() << ";y = " << event->y() << ";left" << windowStatus->getLeftButtonPress();
     if(!windowStatus->getLeftButtonPress() && !windowStatus->getMaxWin())
     {
         windowStatus->setDirection(pointValid(event->x(), event->y()));

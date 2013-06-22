@@ -133,12 +133,8 @@ void WorkWidget::on_newBtn_clicked()
 
 void WorkWidget::editorToPreview()
 {
-    QString htmlStr;
     markdown = mdEditor->toPlainText();
-    QStringList markdownlist = markdown.split("\n");
-    for(int i = 0;i < markdownlist.size();i++)
-        htmlStr.append(mparse.markdownToHtml(filertIllegChar(markdownlist.at(i))));
-    html = htmlStr;
+    html = mparse.markdownToHtml(filertIllegChar(markdown));
     preview->setHtml(html);
 }
 
@@ -147,7 +143,7 @@ QString WorkWidget::filertIllegChar(QString str)
     str.replace("\\", "\\\\");
     str.replace("\"", "\\\"");
     str.replace("\'", "\\\'");
-    str.append("\\n");
+    str.replace("\n", "\\n");
     return str;
 }
 

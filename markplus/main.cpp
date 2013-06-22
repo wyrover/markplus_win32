@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     Mpdba dba;
     Mparse parse;
     //qDebug() << "------>" << dba.markdownToHtmlJs();
-    //qDebug() << "------>" << parse.markdownToHtml("---");
+    qDebug() << "------>" << parse.markdownToHtml("---\\n##hello\\n###good");
     MpGui w;
     w.show();
 	return a.exec();

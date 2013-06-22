@@ -24,6 +24,9 @@ public:
     QAction* feedBack;
     QAction* help;
     QAction* exit;
+    QAction* asciCodeAction;
+    QMenu *codeMenu;
+
 
 private:
     void initSetMenu();
