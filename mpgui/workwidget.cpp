@@ -157,7 +157,7 @@ void WorkWidget::adjustSetupMenu()
 
 void WorkWidget::saveMarkdownFile()
 {
-    QString filePath = QFileDialog::getSaveFileName();
+    QString filePath = QFileDialog::getSaveFileName(this, tr("Save as markdown file"), ".", "Markdown file(*.md *.markdown)");
     if(!filePath.isEmpty()) {
         QFile file(filePath);
         //方式：Append为追加，WriteOnly，ReadOnly
@@ -179,7 +179,7 @@ void WorkWidget::saveMarkdownFile()
 
 void WorkWidget::saveHtmlFile()
 {
-    QString filePath = QFileDialog::getSaveFileName();
+    QString filePath = QFileDialog::getSaveFileName(this, tr("Save as html file"), ".", "Html file(*.html *.htm)");
     if(!filePath.isEmpty()) {
         QFile file(filePath);
         //方式：Append为追加，WriteOnly，ReadOnly
