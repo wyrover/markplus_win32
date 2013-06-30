@@ -51,8 +51,12 @@ QToolButton, #publishBtn,#newBtn,#attributeBtn {
 QToolButton:hover, #publishBtn:hover, #newBtn:hover, #attributeBtn:hover, QToolButton:checked{
     background: #1f8dd6;
     color: white;
-    border: 1px solid #ddd;
+    border: 1px solid #1f8dd6;
     font-family:'Segoe UI', Arial, 'Microsoft Yahei', Simsun, sans-serif;
+}
+
+#mdEditor{
+    border:1px solid #f0f0f0;
 }
 
 QToolButton::menu-indicator{
@@ -106,4 +110,8 @@ QScrollBar::sub-line:vertical{
 }
 QScrollBar::add-page:vertical , QScrollBar::sub-page:vertical {
       background: none;
+}
+
+#toolBarWidget{
+    background-color:transparent;
 }

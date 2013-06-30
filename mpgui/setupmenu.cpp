@@ -28,6 +28,8 @@ void SetupMenu::initActions()
     find->setShortcut(QObject::tr("Ctrl+F"));
     print = new QAction(QObject::tr("Print(P)"), this);
     print->setShortcut(QObject::tr("Ctrl+Alt+P"));
+    open = new QAction(QObject::tr("Open(O)"), this);
+    open->setShortcut(QObject::tr("Ctrl+O"));
     save = new QAction(QObject::tr("Save(S)"), this);
     save->setShortcut(QObject::tr("Ctrl+S"));
     saveToHtml = new QAction(QObject::tr("Save To Html(H)"), this);
@@ -48,11 +50,12 @@ void SetupMenu::initActions()
     addSeparator();
     //addAction(find);
     //addAction(print);
+    addAction(open);
     addAction(save);
     addAction(saveToHtml);
-    addSeparator();
-    addAction(syncPost);
-    addAction(setAccount);
+    //addSeparator();
+    //addAction(syncPost);
+    //addAction(setAccount);
     addSeparator();
     addAction(about);
     addAction(feedBack);

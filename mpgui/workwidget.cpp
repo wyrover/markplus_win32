@@ -31,6 +31,7 @@ void WorkWidget::initWorkWidget()
 void WorkWidget::initEditor()
 {
     mdEditor = new MdEditor();
+    mdEditor->setObjectName("mdEditor");
     mdEditor->setReadOnly(false);
     ui->splitter->addWidget(mdEditor);
     markdown = "###Welcome to the world of markdown\n* you can edit the text with markdown\n* you can preview the document\n* you can export the text to local file";
@@ -57,17 +58,18 @@ void WorkWidget::initToolBar()
 
     connect(setupMenu, SIGNAL(setupMenuShowSignal()), this, SLOT(adjustSetupMenu()));
     connect(setupMenu->prePost, SIGNAL(triggered()), this, SLOT(on_previewBtn_clicked()));
-    connect(setupMenu->editPost, SIGNAL(triggered()), this, SLOT(on_signalBtn_clicked()));
+    connect(setupMenu->editPost, SIGNAL(triggered()), this, SLOT(on_editorBtn_clicked()));
     connect(setupMenu->doubleView, SIGNAL(triggered()), this, SLOT(on_doubleBtn_clicked()));
+    connect(setupMenu->open, SIGNAL(triggered()), this, SLOT(openMarkdownFile()));
     connect(setupMenu->save, SIGNAL(triggered()), this, SLOT(saveMarkdownFile()));
     connect(setupMenu->saveToHtml, SIGNAL(triggered()), this, SLOT(saveHtmlFile()));
     connect(setupMenu->exit, SIGNAL(triggered()), qApp, SLOT(quit()));
 }
 
-void WorkWidget::switchViewModel( bool singalFlag, bool previewFlag, bool doubleFlag)
+void WorkWidget::switchViewModel( bool editorFlag, bool previewFlag, bool doubleFlag)
 {
 
-    if(singalFlag)
+    if(editorFlag)
     {
         mdEditor->show();
         preview->hide();
@@ -82,12 +84,12 @@ void WorkWidget::switchViewModel( bool singalFlag, bool previewFlag, bool double
         preview->show();
         mdEditor->show();
     }
-    ui->signalBtn->setChecked(singalFlag);
+    ui->editorBtn->setChecked(editorFlag);
     ui->previewBtn->setChecked(previewFlag);
     ui->doubleBtn->setChecked(doubleFlag);
 }
 
-void WorkWidget::on_signalBtn_clicked()
+void WorkWidget::on_editorBtn_clicked()
 {
     switchViewModel(true, false, false);
 }
@@ -135,7 +137,9 @@ void WorkWidget::editorToPreview()
 {
     markdown = mdEditor->toPlainText();
     html = mparse.markdownToHtml(filertIllegChar(markdown));
-    preview->setHtml(html);
+    QString style = "<html><body style='font-family:Segoe UI'>" + html + "</body></html>";
+    qDebug() << style;
+    preview->setHtml(style);
 }
 
 QString WorkWidget::filertIllegChar(QString str)
@@ -191,5 +195,41 @@ void WorkWidget::saveHtmlFile()
         out << html;
         out.flush();
         file.close();
+    }
+}
+
+void WorkWidget::openMarkdownFile()
+{
+    if(mdEditor->toPlainText().isEmpty()){
+        QString filePath = QFileDialog::getOpenFileName(this, tr("Open"), ".", "Markdown file(*.md *.markdown)");
+        if(!filePath.isEmpty()){
+            QFile mdFile(filePath);
+            mdFile.open(QFile::ReadOnly);
+            if(mdFile.isOpen())
+            {
+                markdown = QLatin1String(mdFile.readAll());
+                mdEditor->setPlainText(markdown);
+                mdFile.close();
+            }
+        }
+    }else{
+        QMessageBox msgBox;
+        msgBox.setText("Do you want to save the text");
+        msgBox.setIcon(QMessageBox::Question);
+        msgBox.setStandardButtons(QMessageBox::Yes  | QMessageBox::No | QMessageBox::Cancel);
+        msgBox.setDefaultButton(QMessageBox::Cancel);
+        int ret = msgBox.exec();
+        qDebug() << ret;
+        if(ret == 16384)
+        {
+            newPostFlag = true;
+            saveMarkdownFile();
+            openMarkdownFile();
+        }
+        else if(ret == 65536)
+        {
+            mdEditor->clear();
+            openMarkdownFile();
+        }
     }
 }

@@ -15,6 +15,7 @@ public:
     QAction* pubPost;
     QAction* find;
     QAction* print;
+    QAction* open;
     QAction* save;
     QAction* saveToHtml;
     QAction* syncPost;

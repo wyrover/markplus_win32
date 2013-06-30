@@ -50,15 +50,17 @@ private:
     bool newPostFlag;
 
 private slots:
-    void on_signalBtn_clicked();
+    void on_editorBtn_clicked();
     void on_previewBtn_clicked();
     void on_doubleBtn_clicked();
     void on_attributeBtn_clicked();
+    void on_newBtn_clicked();
     void editorToPreview();
     void adjustSetupMenu();
+    void openMarkdownFile();
     void saveMarkdownFile();
     void saveHtmlFile();
-    void on_newBtn_clicked();
+
 };
 
 #endif // WORKWIDGET_H
