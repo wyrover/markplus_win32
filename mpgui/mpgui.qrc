@@ -4,5 +4,6 @@
         <file>res/img/IDR_CLOSE_DIALOG.png</file>
         <file>res/img/IDR_CLOSE_DIALOG_H.png</file>
         <file>res/img/IDR_CLOSE_DIALOG_P.png</file>
+        <file>res/img/body_bg.jpg</file>
     </qresource>
 </RCC>

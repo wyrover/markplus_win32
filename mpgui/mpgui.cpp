@@ -31,7 +31,8 @@ void MpGui::initStatusBar()
 {
     //初始化状态栏
     statusBar = new StatusBar();
-    ui->statusBarLayout->addWidget(statusBar);
+    //ui->statusBarLayout->addWidget(statusBar);
+    //ui->statusBar->hide();
 }
 
 StatusBar* MpGui::getStatusBar()

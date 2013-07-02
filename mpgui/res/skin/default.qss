@@ -67,10 +67,6 @@ QWebView{
     font-family:'Segoe UI', Arial, 'Microsoft Yahei', Simsun, sans-serif;
 }
 
-#toolBarWidget {
-    background-color: transparent;
-}
-
 QScrollBar:vertical
 {
     /*border-top:1px solid #86A3DA;*/
@@ -110,8 +106,4 @@ QScrollBar::sub-line:vertical{
 }
 QScrollBar::add-page:vertical , QScrollBar::sub-page:vertical {
       background: none;
-}
-
-#toolBarWidget{
-    background-color:transparent;
 }
